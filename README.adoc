@@ -17,8 +17,11 @@ This repository is a **Content Repository**. It provides abstract "intents" (e.g
 
 The Evolution Engine uses a directory-based fallback mechanism. For example, querying `linux/ubuntu/22.04/lib_dir` will look for:
 1. `rules/linux/ubuntu/22.04/lib_dir.sdl`
-2. `rules/linux/ubuntu/default/lib_dir.sdl`
-3. `rules/linux/default/lib_dir.sdl`
+2. `rules/linux/ubuntu/22.04/default/lib_dir.sdl`
+3. `rules/linux/ubuntu/default/lib_dir.sdl`
+4. `rules/linux/default/lib_dir.sdl`
+5. `rules/lib_dir.sdl` (Global Intent)
+6. `rules/default/lib_dir.sdl` (Global Default)
 
 == Use with Evolution Engine
 
