@@ -8,9 +8,16 @@ When you download an auto-generated archive (e.g., `evolution-rules-filesystem-1
 1. A root directory named `<repo-name>-<tag-name>/` (e.g., `evolution-rules-filesystem-1.0.0/`).
 2. The rules folder is located at `<repo-name>-<tag-name>/rules/`.
 
+## Using the `latest` tag
+
+To always use the most recent rules without updating your CI configuration:
+
+1. **Download URL**: `https://github.com/AMDphreak/evolution-rules-filesystem/archive/refs/tags/latest.zip`
+2. **Internal Folder**: The root folder in this zip will be `evolution-rules-filesystem-latest/`.
+
 ## Making Other CI Environments Compatible
 
-If you are using a CI environment like GitLab or a custom build server that expects a flat structure or a specific zip naming convention, you can use the following logic to handle GitHub-style archives.
+If you are using a CI environment like GitLab or a custom build server that expects a flat structure or a specific zip naming convention, you can use the following logic:
 
 ### Pattern: Extract and Flatten
 
@@ -18,9 +25,9 @@ If your tool expects `rules/` at the root, you can extract and move:
 
 ```bash
 # Example for a CI script
-unzip evolution-rules-filesystem-1.0.0.zip
-mv evolution-rules-filesystem-1.0.0/rules ./rules
-rm -rf evolution-rules-filesystem-1.0.0
+unzip evolution-rules-filesystem-latest.zip
+mv evolution-rules-filesystem-latest/rules ./rules
+rm -rf evolution-rules-filesystem-latest
 ```
 
 ### Pattern: Directory Masking
@@ -29,7 +36,7 @@ Many extraction tools allow stripping the first component of the path:
 
 ```bash
 # Using tar to strip the root directory
-tar -xzf evolution-rules-filesystem-1.0.0.tar.gz --strip-components=1
+tar -xzf evolution-rules-filesystem-latest.tar.gz --strip-components=1
 ```
 
 ## Why use Auto-Archives?
