@@ -1,0 +1,33 @@
+= Evolution Rules: Filesystem
+:revdate: 2026-03-22
+:toc: left
+
+Cross-OS filesystem path equivalency rules (Linux, Windows, macOS, BSD) for the link:https://github.com/AMDphreak/evolution-engine[Evolution Engine].
+
+This repository is a **Content Repository**. It provides abstract "intents" (e.g., `lib_dir`, `config_dir`, `temp_dir`) and maps them to literal paths on specific operating systems and distributions.
+
+== Directory Structure
+
+* `rules/linux/` — Linux distribution-specific paths (Ubuntu, Debian, etc.).
+* `rules/windows/` — Windows-specific paths (System32, ProgramData, etc.).
+* `rules/mac/` — macOS-specific paths (Library, Application Support, etc.).
+* `rules/bsd/` — BSD-specific paths.
+
+== Resolution Logic
+
+The Evolution Engine uses a directory-based fallback mechanism. For example, querying `linux/ubuntu/22.04/lib_dir` will look for:
+1. `rules/linux/ubuntu/22.04/lib_dir.sdl`
+2. `rules/linux/ubuntu/default/lib_dir.sdl`
+3. `rules/linux/default/lib_dir.sdl`
+
+== Use with Evolution Engine
+
+[source,bash]
+----
+evolution-engine --domain filesystem --rules-repo https://github.com/AMDphreak/evolution-rules-filesystem --to linux/ubuntu/22.04 lib_dir
+----
+
+== Related
+
+* link:https://github.com/AMDphreak/evolution-engine[Evolution Engine] — The core binary that resolves these rules.
+* link:https://github.com/AMDphreak/evolution-engine-action[Evolution Engine Action] — GitHub Action for using these rules in CI.
