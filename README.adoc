@@ -1,36 +1,43 @@
 = Evolution Rules: Filesystem
-:revdate: 2026-03-22
-:toc: left
+:toc:
+:icons: font
 
 Cross-OS filesystem path equivalency rules (Linux, Windows, macOS, BSD) for the link:https://github.com/AMDphreak/evolution-engine[Evolution Engine].
 
-This repository is a **Content Repository**. It provides abstract "intents" (e.g., `lib_dir`, `config_dir`, `temp_dir`) and maps them to literal paths on specific operating systems and distributions.
+== Ecosystem
+
+* link:https://github.com/AMDphreak/evolution-engine[Evolution Engine] — The core binary that resolves and applies these rules.
+* link:https://github.com/AMDphreak/evolution-engine-action[Evolution Engine Action] — Modular GitHub Action to automate code evolution in CI pipelines.
+* link:https://github.com/AMDphreak/evolution-rules-code[Evolution Rules: Code] — Rules for migrating source code between library versions.
+* link:https://github.com/AMDphreak/evolution-rules-filesystem[Evolution Rules: Filesystem] — This repository.
+
+== Overview
+
+This repository is a **Content Repository** for the `filesystem` domain. It provides abstract "intents" (e.g., `lib_dir`, `config_dir`) and maps them to literal paths across different operating systems and distributions.
 
 == Directory Structure
 
-* `rules/linux/` — Linux distribution-specific paths (Ubuntu, Debian, etc.).
-* `rules/windows/` — Windows-specific paths (System32, ProgramData, etc.).
-* `rules/mac/` — macOS-specific paths (Library, Application Support, etc.).
-* `rules/bsd/` — BSD-specific paths.
+[source]
+----
+rules/
+├── linux/              <-- OS Family
+│   └── ubuntu/         <-- Distribution
+│       └── 22.04/      <-- Version
+├── windows/
+└── mac/
+----
 
-== Resolution Logic
+== Usage with Evolution Engine
 
-The Evolution Engine uses a directory-based fallback mechanism. For example, querying `linux/ubuntu/22.04/lib_dir` will look for:
-1. `rules/linux/ubuntu/22.04/lib_dir.sdl`
-2. `rules/linux/ubuntu/22.04/default/lib_dir.sdl`
-3. `rules/linux/ubuntu/default/lib_dir.sdl`
-4. `rules/linux/default/lib_dir.sdl`
-5. `rules/lib_dir.sdl` (Global Intent)
-6. `rules/default/lib_dir.sdl` (Global Default)
-
-== Use with Evolution Engine
+To resolve a filesystem intent across platforms:
 
 [source,bash]
 ----
-evolution-engine --domain filesystem --rules-repo https://github.com/AMDphreak/evolution-rules-filesystem --to linux/ubuntu/22.04 lib_dir
+evolution-engine --domain filesystem \
+  --rules-repo https://github.com/AMDphreak/evolution-rules-filesystem \
+  --to linux/ubuntu/22.04 lib_dir
 ----
 
-== Related
+== Contribution
 
-* link:https://github.com/AMDphreak/evolution-engine[Evolution Engine] — The core binary that resolves these rules.
-* link:https://github.com/AMDphreak/evolution-engine-action[Evolution Engine Action] — GitHub Action for using these rules in CI.
+Add new path mappings to the `rules/<os>/<distro>/<version>/` folders. Use the intent name as the filename (e.g., `rules/linux/ubuntu/lib_dir.sdl`).
