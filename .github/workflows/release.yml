@@ -1,0 +1,50 @@
+name: Release
+# This workflow packages the rules for deployment as a versioned release.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Package Ruleset
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create Archives
+        run: |
+          mkdir -p dist
+          tar -czf dist/evolution-rules-filesystem-${{ github.ref_name }}.tar.gz rules/
+          zip -r dist/evolution-rules-filesystem-${{ github.ref_name }}.zip rules/
+          
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: rules-archives
+          path: dist/*
+
+  release:
+    name: Create GitHub Release
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: rules-archives
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            *.tar.gz
+            *.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
