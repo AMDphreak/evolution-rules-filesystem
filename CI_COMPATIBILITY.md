@@ -4,16 +4,16 @@ GitHub automatically generates source code archives for every release and tag. T
 
 ## GitHub Auto-Archive Structure
 
-When you download an auto-generated archive (e.g., `evolution-rules-filesystem-1.0.0.zip`), it contains:
-1. A root directory named `<repo-name>-<tag-name>/` (e.g., `evolution-rules-filesystem-1.0.0/`).
+When you download an auto-generated archive (e.g., `equivalence-rules-filesystem-1.0.0.zip`), it contains:
+1. A root directory named `<repo-name>-<tag-name>/` (e.g., `equivalence-rules-filesystem-1.0.0/`).
 2. The rules folder is located at `<repo-name>-<tag-name>/rules/`.
 
 ## Using the `latest` tag
 
 To always use the most recent rules without updating your CI configuration:
 
-1. **Download URL**: `https://github.com/AMDphreak/evolution-rules-filesystem/archive/refs/tags/latest.zip`
-2. **Internal Folder**: The root folder in this zip will be `evolution-rules-filesystem-latest/`.
+1. **Download URL**: `https://github.com/AMDphreak/equivalence-rules-filesystem/archive/refs/tags/latest.zip`
+2. **Internal Folder**: The root folder in this zip will be `equivalence-rules-filesystem-latest/`.
 
 ## Making Other CI Environments Compatible
 
@@ -25,9 +25,9 @@ If your tool expects `rules/` at the root, you can extract and move:
 
 ```bash
 # Example for a CI script
-unzip evolution-rules-filesystem-latest.zip
-mv evolution-rules-filesystem-latest/rules ./rules
-rm -rf evolution-rules-filesystem-latest
+unzip equivalence-rules-filesystem-latest.zip
+mv equivalence-rules-filesystem-latest/rules ./rules
+rm -rf equivalence-rules-filesystem-latest
 ```
 
 ### Pattern: Directory Masking
@@ -36,7 +36,7 @@ Many extraction tools allow stripping the first component of the path:
 
 ```bash
 # Using tar to strip the root directory
-tar -xzf evolution-rules-filesystem-latest.tar.gz --strip-components=1
+tar -xzf equivalence-rules-filesystem-latest.tar.gz --strip-components=1
 ```
 
 ## Why use Auto-Archives?

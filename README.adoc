@@ -1,15 +1,15 @@
-= Evolution Rules: Filesystem
+= Equivalence Rules: Filesystem
 :toc:
 :icons: font
 
-Cross-OS filesystem path equivalency rules (Linux, Windows, macOS, BSD) for the link:https://github.com/AMDphreak/evolution-engine[Evolution Engine].
+Cross-OS filesystem path equivalency rules (Linux, Windows, macOS, BSD) for the link:https://github.com/AMDphreak/equivalence-engine[Equivalence Engine].
 
 == Ecosystem
 
-* link:https://github.com/AMDphreak/evolution-engine[Evolution Engine] — The core binary that resolves and applies these rules.
-* link:https://github.com/AMDphreak/evolution-engine-action[Evolution Engine Action] — Modular GitHub Action to automate code evolution in CI pipelines.
-* link:https://github.com/AMDphreak/evolution-rules-code[Evolution Rules: Code] — Rules for migrating source code between library versions.
-* link:https://github.com/AMDphreak/evolution-rules-filesystem[Evolution Rules: Filesystem] — This repository.
+* link:https://github.com/AMDphreak/equivalence-engine[Equivalence Engine] — The core binary that resolves and applies these rules.
+* link:https://github.com/AMDphreak/equivalence-engine-action[Equivalence Engine Action] — Modular GitHub Action to automate code adaptation in CI pipelines.
+* link:https://github.com/AMDphreak/equivalence-rules-code[Equivalence Rules: Code] — Rules for migrating source code between library versions.
+* link:https://github.com/AMDphreak/equivalence-rules-filesystem[Equivalence Rules: Filesystem] — This repository.
 
 == Overview
 
@@ -27,14 +27,14 @@ rules/
 └── mac/
 ----
 
-== Usage with Evolution Engine
+== Usage with Equivalence Engine
 
 To resolve a filesystem intent across platforms:
 
 [source,bash]
 ----
-evolution-engine --domain filesystem \
-  --rules-repo https://github.com/AMDphreak/evolution-rules-filesystem \
+equivalence-engine --domain filesystem \
+  --rules-repo https://github.com/AMDphreak/equivalence-rules-filesystem \
   --to linux/ubuntu/22.04 lib_dir
 ----
 
