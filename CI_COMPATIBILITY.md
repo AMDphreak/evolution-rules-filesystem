@@ -12,7 +12,7 @@ When you download an auto-generated archive (e.g., `equivalence-rules-filesystem
 
 To always use the most recent rules without updating your CI configuration:
 
-1. **Download URL**: `https://github.com/AMDphreak/equivalence-rules-filesystem/archive/refs/tags/latest.zip`
+1. **Download URL**: `https://github.com/dev-centr/equivalence-rules-filesystem/archive/refs/tags/latest.zip`
 2. **Internal Folder**: The root folder in this zip will be `equivalence-rules-filesystem-latest/`.
 
 ## Making Other CI Environments Compatible

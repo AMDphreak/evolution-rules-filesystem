@@ -37,6 +37,6 @@ Resolve a filesystem path intent for Ubuntu 22.04 using a ruleset cloned directl
 [source,bash]
 ----
 equivalence-engine --domain filesystem \
-  --rules-repo https://github.com/AMDphreak/equivalence-rules-filesystem \
+  --rules-repo https://github.com/dev-centr/equivalence-rules-filesystem \
   --to linux/ubuntu/22.04 lib_dir
 ----
