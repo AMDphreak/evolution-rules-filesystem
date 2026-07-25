@@ -1,0 +1,5 @@
+name: equivalence-rules-filesystem
+version: ~
+title: Filesystem Mappings
+nav:
+  - modules/ROOT/nav.adoc
