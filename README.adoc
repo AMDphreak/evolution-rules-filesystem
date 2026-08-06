@@ -1,21 +1,44 @@
+ifndef::env-github[:icons: font]
+:toc: preamble
+:toclevels: 2
+:sectanchors:
+
+ifndef::env-github[]
+image:https://img.shields.io/github/contributors/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Contributors,link=https://github.com/dev-centr/equivalence-rules-filesystem/graphs/contributors]
+image:https://img.shields.io/github/forks/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/equivalence-rules-filesystem/network/members]
+image:https://img.shields.io/github/stars/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/equivalence-rules-filesystem/stargazers]
+image:https://img.shields.io/github/issues/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Issues,link=https://github.com/dev-centr/equivalence-rules-filesystem/issues]
+endif::[]
+
+ifdef::env-github[]
+image:https://img.shields.io/github/contributors/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Contributors]
+image:https://img.shields.io/github/forks/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Forks]
+image:https://img.shields.io/github/stars/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Stars]
+image:https://img.shields.io/github/issues/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Issues]
+endif::[]
+
 = Equivalence Rules: Filesystem
-:toc:
-:icons: font
+
+Cross-OS filesystem path equivalency rules (Linux, Windows, macOS, BSD) for the Evolution Engine.
+
+link:https://github.com/dev-centr/equivalence-engine[Equivalence Engine] ·
+link:https://github.com/dev-centr/equivalence-rules-filesystem/issues[Report Bug] ·
+link:https://github.com/dev-centr/equivalence-rules-filesystem/issues[Request Feature]
+
+== About The Project
 
 Cross-OS filesystem path equivalency rules (Linux, Windows, macOS, BSD) for the link:https://github.com/dev-centr/equivalence-engine[Equivalence Engine].
 
-== Ecosystem
+This repository is a **Content Repository** for the `filesystem` domain. It provides abstract "intents" (e.g., `lib_dir`, `config_dir`) and maps them to literal paths across different operating systems and distributions.
+
+=== Ecosystem
 
 * link:https://github.com/dev-centr/equivalence-engine[Equivalence Engine] — The core binary that resolves and applies these rules.
 * link:https://github.com/dev-centr/equivalence-engine-action[Equivalence Engine Action] — Modular GitHub Action to automate code adaptation in CI pipelines.
 * link:https://github.com/dev-centr/equivalence-rules-code[Equivalence Rules: Code] — Rules for migrating source code between library versions.
 * link:https://github.com/dev-centr/equivalence-rules-filesystem[Equivalence Rules: Filesystem] — This repository.
 
-== Overview
-
-This repository is a **Content Repository** for the `filesystem` domain. It provides abstract "intents" (e.g., `lib_dir`, `config_dir`) and maps them to literal paths across different operating systems and distributions.
-
-== Directory Structure
+=== Directory Structure
 
 [source]
 ----
@@ -27,7 +50,7 @@ rules/
 └── mac/
 ----
 
-== Usage with Equivalence Engine
+== Usage
 
 To resolve a filesystem intent across platforms:
 
@@ -38,6 +61,13 @@ equivalence-engine --domain filesystem \
   --to linux/ubuntu/22.04 lib_dir
 ----
 
-== Contribution
+== Contributing
 
 Add new path mappings to the `rules/<os>/<distro>/<version>/` folders. Use the intent name as the filename (e.g., `rules/linux/ubuntu/lib_dir.sdl`).
+
+== Contact
+
+DevCentr.org — support@devcentr.org
+
+* Project: https://github.com/dev-centr/equivalence-rules-filesystem
+* Site: https://devcentr.org
