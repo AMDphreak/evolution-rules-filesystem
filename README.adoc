@@ -3,19 +3,11 @@ ifndef::env-github[:icons: font]
 :toclevels: 2
 :sectanchors:
 
-ifndef::env-github[]
+[[readme-top]]
 image:https://img.shields.io/github/contributors/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Contributors,link=https://github.com/dev-centr/equivalence-rules-filesystem/graphs/contributors]
 image:https://img.shields.io/github/forks/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/equivalence-rules-filesystem/network/members]
 image:https://img.shields.io/github/stars/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/equivalence-rules-filesystem/stargazers]
 image:https://img.shields.io/github/issues/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Issues,link=https://github.com/dev-centr/equivalence-rules-filesystem/issues]
-endif::[]
-
-ifdef::env-github[]
-image:https://img.shields.io/github/contributors/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Contributors]
-image:https://img.shields.io/github/forks/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Forks]
-image:https://img.shields.io/github/stars/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Stars]
-image:https://img.shields.io/github/issues/dev-centr/equivalence-rules-filesystem.svg?style=for-the-badge[Issues]
-endif::[]
 
 = Equivalence Rules: Filesystem
 
@@ -50,6 +42,8 @@ rules/
 └── mac/
 ----
 
+link:#readme-top[back to top]
+
 == Usage
 
 To resolve a filesystem intent across platforms:
@@ -61,9 +55,13 @@ equivalence-engine --domain filesystem \
   --to linux/ubuntu/22.04 lib_dir
 ----
 
+link:#readme-top[back to top]
+
 == Contributing
 
 Add new path mappings to the `rules/<os>/<distro>/<version>/` folders. Use the intent name as the filename (e.g., `rules/linux/ubuntu/lib_dir.sdl`).
+
+link:#readme-top[back to top]
 
 == Contact
 
@@ -71,3 +69,5 @@ DevCentr.org — support@devcentr.org
 
 * Project: https://github.com/dev-centr/equivalence-rules-filesystem
 * Site: https://devcentr.org
+
+link:#readme-top[back to top]
