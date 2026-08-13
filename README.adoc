@@ -46,6 +46,8 @@ Cross-OS filesystem path equivalency rules (Linux, Windows, macOS, BSD) for the 
 
 This repository is a **Content Repository** for the `filesystem` domain. It provides abstract "intents" (e.g., `lib_dir`, `config_dir`) and maps them to literal paths across different operating systems and distributions.
 
+`family` and `inherits` on `context.sdl` files are the same vocabulary PlayTime uses for a **Host Identity Record** (`windows`, `linux`, `darwin`, `bsd`). Keep them aligned. PlayTime learns the OS from a baked probe cascade; it does not call this engine to ask what OS it is. See link:https://github.com/dev-centr/scriptbook/blob/main/spec/host-awareness.adoc[Host Awareness].
+
 === Ecosystem
 
 * link:https://github.com/dev-centr/equivalence-engine[Equivalence Engine] — The core binary that resolves and applies these rules.
